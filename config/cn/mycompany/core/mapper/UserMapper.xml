@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace：名称空间，相当于java中的package，用于放置sql语句的名称冲突（sql语句隔离） -->
+<!-- mapper代理开发方法中，namespace属性值，必须是mapper接口的全限定名称 -->
+<mapper namespace="cn.mycompany.core.mapper.UserMapper">
+    <insert id="insertUser" parameterType="user">
+        insert into user (name, birthday) values (#{name},#{birthday});
+    </insert>
+    <!-- 新增一个用户 
+    <insert id="insertUser" parameterType="com.company.domain.User"
+            useGeneratedKeys="true" keyColumn="id" keyProperty="id">
+        INSERT INTO user(username, birthday, sex, address) VALUES (#{username}, #{birthday}, #{sex}, #{address})
+    </insert>
+    -->
+    <select id="findAllUser" resultType="user">
+        select * from user;
+    </select>
+</mapper>
